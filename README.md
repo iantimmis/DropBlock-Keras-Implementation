@@ -1,5 +1,5 @@
 # DropBlock-Keras-Implementation
-Paper Reproduction: "DropBlock: A regularization method for convolutional networks" (Google Brain, https://arxiv.org/pdf/1810.12890.pdf)
+Paper Reproduction: "DropBlock: A regularization method for convolutional networks" (Google Brain, https://arxiv.org/abs/1810.12890)
 
  # DropBlock
 DropBlock was designed to regularize Convolutional Neural Networks. According to the paper,
