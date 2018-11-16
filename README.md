@@ -1,7 +1,16 @@
 # DropBlock-Keras-Implementation
 Paper Reproduction: "DropBlock: A regularization method for convolutional networks" (Google Brain, https://arxiv.org/abs/1810.12890)
 
- # DropBlock
+# Requirements
+```
+pip3 install Keras
+
+pip3 install numpy
+
+pip3 install scipy
+```
+
+# DropBlock
 DropBlock was designed to regularize Convolutional Neural Networks. According to the paper,
 
 "(a) input image to a convolutional neural network. The green regions in (b) and (c) include
@@ -23,14 +32,13 @@ block_size × block_size zero block."
 ![drop_block](https://github.com/iantimmis/DropBlock-Keras-Implementation/blob/master/images/DropBlock.png)
 
 # Usage
-TODO
+# Requirements
+```
+from DropBlock import DropBlock
+
+DropBlock(block_size=5, keep_prob=.9)
+```
+TODO complete this
 
 # Performance
 TODO
-
-# Requirements
-Keras
-
-numpy
-
-scipy
