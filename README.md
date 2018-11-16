@@ -32,7 +32,6 @@ block_size × block_size zero block."
 ![drop_block](https://github.com/iantimmis/DropBlock-Keras-Implementation/blob/master/images/DropBlock.png)
 
 # Usage
-# Requirements
 ```
 from DropBlock import DropBlock
 
