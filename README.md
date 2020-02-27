@@ -3,11 +3,7 @@ Paper Reproduction: "DropBlock: A regularization method for convolutional networ
 
 # Requirements
 ```
-pip3 install Keras
-
-pip3 install numpy
-
-pip3 install scipy
+pip install keras numpy scipy
 ```
 
 # DropBlock
@@ -41,7 +37,3 @@ from DropBlock import DropBlock
 
 DropBlock(block_size=5, keep_prob=.9)
 ```
-TODO complete this
-
-# Performance
-TODO
