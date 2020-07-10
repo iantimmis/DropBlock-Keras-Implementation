@@ -2,7 +2,7 @@
 Paper Reproduction: "DropBlock: A regularization method for convolutional networks" (Google Brain, https://arxiv.org/abs/1810.12890)
 
 # Requirements
-```
+```bash
 pip install keras numpy scipy
 ```
 
@@ -32,7 +32,7 @@ block_size × block_size zero block.
 ![drop_block](https://github.com/iantimmis/DropBlock-Keras-Implementation/blob/master/images/DropBlock.png)
 
 # Usage
-```
+```python
 from DropBlock import DropBlock
 
 DropBlock(block_size=5, keep_prob=.9)
