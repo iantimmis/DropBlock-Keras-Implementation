@@ -1,6 +1,6 @@
 from keras import backend as K
 from keras.engine.topology import Layer
-from scipy.stats import bernoulli
+import numpy as np
 import copy
 
 class DropBlock(Layer):
@@ -33,7 +33,7 @@ class DropBlock(Layer):
     def call(self, x, training=None):
 
         # During inference, we do not Drop Blocks. (Similar to DropOut)
-        if training == None:
+        if training is None or self.keep_prob == 1.0:
             return x
 
         # Calculate Gamma
@@ -43,11 +43,11 @@ class DropBlock(Layer):
         padding = self.block_size//2
 
         # Randomly sample mask
-        sample = bernoulli.rvs(size=(feat_size-(padding*2), feat_size-(padding*2)),p=gamma)
+        sample = np.random.rand(feat_size-(padding*2), feat_size-(padding*2)) < gamma
 
         # The above code creates a matrix of zeros and samples ones from the distribution
         # We would like to flip all of these values
-        sample = 1-sample
+        sample = 1 - sample.astype(np.float32)
 
         # Pad the mask with ones
         sample = np.pad(sample, pad_width=padding, mode='constant', constant_values=1)
@@ -72,9 +72,10 @@ class DropBlock(Layer):
         return x
 
     def get_config(self):
-        config = {'block_size': self.block_size,
-                  'gamma': self.gamma,
-                  'seed': self.seed}
+        config = {
+            'block_size': self.block_size,
+            'keep_prob': self.keep_prob,
+        }
         base_config = super(DropBlock, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
 
