@@ -24,8 +24,6 @@ release from the authors.
 
 ![intuition](https://github.com/iantimmis/DropBlock-Keras-Implementation/blob/master/images/Intuition.png)
 
-![drop_block](https://github.com/iantimmis/DropBlock-Keras-Implementation/blob/master/images/DropBlock.png)
-
 ## Quick start
 Each framework has its own API under the `dropblock` package.
 
