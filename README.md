@@ -13,7 +13,7 @@ Install NumPy together with whichever frameworks you wish to use. For example:
 pip install tensorflow torch jax numpy
 ```
 
-## About the paper
+## About
 The paper proposes dropping spatial blocks of activations during training so
 that nearby units cannot simply co-adapt. In practice a mask is sampled with
 a probability `gamma` and expanded into square regions of zeros. This has been
