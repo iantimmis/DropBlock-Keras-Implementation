@@ -1,39 +1,54 @@
 # DropBlock-Keras-Implementation
-Paper Reproduction: "DropBlock: A regularization method for convolutional networks" (Google Brain, https://arxiv.org/abs/1810.12890)
 
-# Requirements
+This project contains an **unofficial** set of implementations of
+["DropBlock: A regularization method for convolutional networks"](https://arxiv.org/abs/1810.12890)
+from Google Brain. DropBlock is a variant of dropout that removes contiguous
+regions from feature maps instead of individual activations.
+These layers can be used to regularize convolutional networks across multiple
+machine learning frameworks.
+
+## Requirements
+Install NumPy together with whichever frameworks you wish to use. For example:
 ```bash
-pip install keras numpy scipy
+pip install tensorflow torch jax numpy
 ```
 
-# DropBlock
-DropBlock was designed to regularize Convolutional Neural Networks. According to the paper,
+## About the paper
+The paper proposes dropping spatial blocks of activations during training so
+that nearby units cannot simply co-adapt. In practice a mask is sampled with
+a probability `gamma` and expanded into square regions of zeros. This has been
+shown to improve generalization on several vision benchmarks.
 
-```
-(a) input image to a convolutional neural network. The green regions in (b) and (c) include
-the activation units which contain semantic information in the input image. Dropping out activations
-at random is not effective in removing semantic information because nearby activations contain
-closely related information. Instead, dropping continuous regions can remove certain semantic
-information (e.g., head or feet) and consequently enforcing remaining units to learn features for
-classifying input image."
-```
+This repository is provided for educational purposes and is **not** an official
+release from the authors.
 
 ![intuition](https://github.com/iantimmis/DropBlock-Keras-Implementation/blob/master/images/Intuition.png)
 
-The blocks are selected as follows,
-
-```
-Mask sampling in DropBlock. (a) On every feature map, similar to dropout, we first
-sample a mask M. We only sample mask from shaded green region in which each sampled entry can
-expanded to a mask fully contained inside the feature map. (b) Every zero entry on M is expanded to
-block_size × block_size zero block.
-```
-
 ![drop_block](https://github.com/iantimmis/DropBlock-Keras-Implementation/blob/master/images/DropBlock.png)
 
-# Usage
-```python
-from DropBlock import DropBlock
+## Quick start
+Each framework has its own API under the `dropblock` package.
 
-DropBlock(block_size=5, keep_prob=.9)
+### PyTorch
+```python
+from dropblock.torch_dropblock import DropBlock2D
+layer = DropBlock2D(block_size=5, keep_prob=0.9)
+```
+
+### TensorFlow / Keras
+```python
+from dropblock.tf_dropblock import DropBlock2D
+layer = DropBlock2D(block_size=5, keep_prob=0.9)
+```
+
+### JAX
+```python
+from dropblock.jax_dropblock import dropblock2d
+output = dropblock2d(x, block_size=5, keep_prob=0.9, training=True)
+```
+
+## Testing
+Run unit tests (they automatically skip if the corresponding framework is not installed):
+```bash
+pytest -q
 ```
