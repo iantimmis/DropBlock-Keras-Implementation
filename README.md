@@ -1,4 +1,4 @@
-# DropBlock-Keras-Implementation
+# DropBlock Unofficial Implementation
 
 This project contains an **unofficial** set of implementations of
 ["DropBlock: A regularization method for convolutional networks"](https://arxiv.org/abs/1810.12890)
