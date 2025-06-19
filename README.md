@@ -1,4 +1,5 @@
-# DropBlock Unofficial Implementation
+<div align="center">
+<h1> DropBlock Unofficial Implementation </h1>
 
 This project contains an **unofficial** set of implementations of
 ["DropBlock: A regularization method for convolutional networks"](https://arxiv.org/abs/1810.12890)
@@ -6,6 +7,8 @@ from Google Brain. DropBlock is a variant of dropout that removes contiguous
 regions from feature maps instead of individual activations.
 These layers can be used to regularize convolutional networks across multiple
 machine learning frameworks.
+
+</div>
 
 ## Requirements
 DropBlock itself only depends on NumPy. You will also need at least one of the
