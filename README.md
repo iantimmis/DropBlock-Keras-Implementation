@@ -8,9 +8,17 @@ These layers can be used to regularize convolutional networks across multiple
 machine learning frameworks.
 
 ## Requirements
-Install NumPy together with whichever frameworks you wish to use. For example:
+DropBlock itself only depends on NumPy. You will also need at least one of the
+supported deep learning frameworks if you want to run the examples or tests.
+
+* Python 3.8 or later
+* NumPy
+* Optional: [TensorFlow](https://www.tensorflow.org/),
+  [PyTorch](https://pytorch.org/) or [JAX](https://github.com/google/jax)
+
+Install the packages you require, e.g.:
 ```bash
-pip install tensorflow torch jax numpy
+pip install numpy tensorflow torch jax
 ```
 
 ## About
